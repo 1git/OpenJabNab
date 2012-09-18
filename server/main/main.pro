@@ -3,8 +3,8 @@
 ######################################################################
 
 TEMPLATE = app
-CONFIG += qt release console
-CONFIG -= debug
+CONFIG += qt debug console
+CONFIG -= #DEBUG
 QT += network
 QT -= gui
 TARGET = openjabnab

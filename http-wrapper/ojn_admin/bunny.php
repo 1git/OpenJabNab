@@ -88,7 +88,7 @@ elseif(!empty($_POST) && count($_POST) == 4) {
 
 if(empty($_SESSION['bunny'])) {
 ?>
-<h1>Choix du lapin &agrave; configurer</h1>
+<h1>Select a rabbit to configure</h1>
 <ul>
 <?php
 	$bunnies = $ojnAPI->getListOfBunnies(false);

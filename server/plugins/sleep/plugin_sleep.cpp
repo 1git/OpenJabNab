@@ -132,10 +132,21 @@ void PluginSleep::RegisterCrons(Bunny * b)
 
 void PluginSleep::InitApiCalls()
 {
+        DECLARE_PLUGIN_BUNNY_API_CALL("status()", PluginSleep, Api_Status);
 	DECLARE_PLUGIN_BUNNY_API_CALL("sleep()", PluginSleep, Api_Sleep);
 	DECLARE_PLUGIN_BUNNY_API_CALL("wakeup()", PluginSleep, Api_Wakeup);
 	DECLARE_PLUGIN_BUNNY_API_CALL("setup(wakeupList,sleepList)", PluginSleep, Api_Setup);
 	DECLARE_PLUGIN_BUNNY_API_CALL("getsetup()", PluginSleep, Api_GetSetup);
+}
+PLUGIN_BUNNY_API_CALL(PluginSleep::Api_Status)
+{
+	Q_UNUSED(account);
+        Q_UNUSED(hRequest);
+
+	if(!bunny->IsSleeping())
+		return new ApiManager::ApiError(QString("Bunny is awake"));
+
+	return new ApiManager::ApiError(QString("Bunny is asleep"));
 }
 
 PLUGIN_BUNNY_API_CALL(PluginSleep::Api_Sleep)

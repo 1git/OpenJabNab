@@ -21,7 +21,8 @@ QByteArray TTSGoogle::CreateNewSound(QString text, QString voice, bool forceOver
 	QEventLoop loop;
 
 	if(!voiceList.contains(voice))
-		voice = "fr";
+//		voice = "fr";
+		voice = "en";
 
 	// Check (and create if needed) output folder
 	QDir outputFolder = ttsFolder;

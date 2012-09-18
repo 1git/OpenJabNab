@@ -3,8 +3,8 @@
 ######################################################################
 
 TEMPLATE = lib
-CONFIG -= release
-CONFIG += plugin qt release
+CONFIG -= debug
+CONFIG += plugin qt debug
 QT += network
 QT -= gui
 INCLUDEPATH += . ../../server ../../lib

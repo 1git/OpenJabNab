@@ -26,7 +26,7 @@ if(isset($_GET['z']) && empty($_GET['z'])) {
 }
 if(empty($_SESSION['ztamp'])) {
 ?>
-<h1>Choix du ztamp &agrave; configurer</h1>
+<h1>Select a Ztamp to configure</h1>
 <ul>
 <?php
 	$ztamps = $ojnAPI->getListOfZtamps(false);

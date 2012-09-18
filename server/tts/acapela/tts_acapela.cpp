@@ -32,7 +32,8 @@ QByteArray TTSAcapela::CreateNewSound(QString text, QString voice, bool forceOve
 	QEventLoop loop;
 
 	if(!voiceList.contains(voice))
-		voice = "claire";
+//		voice = "claire";
+		voice = "heather";
 
 	// Check (and create if needed) output folder
 	QDir outputFolder = ttsFolder;

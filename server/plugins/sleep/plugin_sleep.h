@@ -28,6 +28,7 @@ public:
 
 	void InitApiCalls();
 
+	PLUGIN_BUNNY_API_CALL(Api_Status);
 	PLUGIN_BUNNY_API_CALL(Api_Sleep);
 	PLUGIN_BUNNY_API_CALL(Api_Wakeup);
 	PLUGIN_BUNNY_API_CALL(Api_Setup);

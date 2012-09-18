@@ -19,6 +19,8 @@ PluginClock::PluginClock():PluginInterface("clock", "Clock",BunnyPlugin)
 		availableVoices = httpFolder->entryList(QDir::Dirs|QDir::NoDotAndDotDot);
 		delete httpFolder;
 	}
+//	availableVoices.push_back("French");
+//	availableVoices.push_back("English");
 	availableVoices.push_back("tts");
 }
 
@@ -39,7 +41,10 @@ void PluginClock::OnCron(Bunny *, QVariant)
 			QString hour = QDateTime::currentDateTime().toString("h");
 			QByteArray file;
 			if(voice == "tts")
-				file = TTSManager::CreateNewSound("Il est " + hour + " heure", "julie");
+//			if(voice == "French")
+//				file = TTSManager::CreateNewSound("Il est " + hour + " heure", "julie");
+//			if(voice == "English")
+				file = TTSManager::CreateNewSound("It is " + hour + " O'Clock", "heather");
 			else
 			{
 				// Fetch available files

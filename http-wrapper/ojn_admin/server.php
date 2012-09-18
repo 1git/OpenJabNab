@@ -1,35 +1,35 @@
 <?php
 require_once "include/common.php";
 if(!isset($_SESSION['token']) || !$Infos['isAdmin'])
-	header('Location: index.php');
+        header('Location: index.php');
 
 $Plugins = $ojnAPI->getListOfPlugins(false);
 
 if((!empty($_GET['plug']) && !empty($_GET['stat'])) || (!empty($_POST['plug']) && !empty($_POST['stat']))) {
-	$a = !empty($_GET['stat']) ? $_GET : $_POST;
-	if($a['stat'] == 'activate')
-		$function='activate';
-	else if($a['stat'] == 'deactivate')
-		$function='deactivate';
-	else
-		$function='reload';
-	if(isset($a['plug'],$Plugins))
-		$_SESSION['message'] = $ojnAPI->getApiString('plugins/'.$function.'Plugin?name='.$a['plug'].'&'.$ojnAPI->getToken());
-	else
-		$_SESSION['message']['error'] = "No plugin with such name.";
-	header('Location: server.php');
+        $a = !empty($_GET['stat']) ? $_GET : $_POST;
+        if($a['stat'] == 'activate')
+                $function='activate';
+        else if($a['stat'] == 'deactivate')
+                $function='deactivate';
+        else
+                $function='reload';
+        if(isset($a['plug'],$Plugins))
+                $_SESSION['message'] = $ojnAPI->getApiString('plugins/'.$function.'Plugin?name='.$a['plug'].'&'.$ojnAPI->getToken());
+        else
+                $_SESSION['message']['error'] = "No plugin with such name.";
+        header('Location: server.php');
 } else if(!empty($_GET['removeA'])) {
-	$_SESSION['message'] = $ojnAPI->getApiString('accounts/removeAccount?login='.$_GET['removeA'].'&'.$ojnAPI->getToken());
-	header('Location: server.php');
+        $_SESSION['message'] = $ojnAPI->getApiString('accounts/removeAccount?login='.$_GET['removeA'].'&'.$ojnAPI->getToken());
+        header('Location: server.php');
 } else if(!empty($_GET['removeB'])) {
-	$_SESSION['message'] = $ojnAPI->getApiString('bunnies/removeBunny?serial='.$_GET['removeB'].'&'.$ojnAPI->getToken());
-	header('Location: server.php');
+        $_SESSION['message'] = $ojnAPI->getApiString('bunnies/removeBunny?serial='.$_GET['removeB'].'&'.$ojnAPI->getToken());
+        header('Location: server.php');
 }
 
 ?>
-<h1 id="config">Configuration du serveur</h1>
+<h1 id="config">Server Configuration</h1>
 <p>
-Voici la liste des plugins disponibles sur ce serveur. A partir de cette page, il est possible de les activer, les d&eacute;sactiver, ou encore les configurer pour ceux qui poss&egrave;dent des options &agrave; r&eacute;gler. Certains plugins ne peuvent pas &ecirc;tre d&eacute;sactiv&eacute;s car ils sont n&eacute;cessaires au bon fonctionnement du serveur.
+From this page, you can enable, disable, or configure the available plugins on this server. Some plugins can not be disabled because they are necessary for the proper functioning of the server.
 </p>
 <?php
 if(isset($_SESSION['message']) && empty($_GET)) {
@@ -119,15 +119,15 @@ if(isset($_SESSION['message']) && empty($_GET)) {
 <p id="tableBunnyPluginServer">
 </p>
 </center>
-<h1 id="bunnies">Liste des lapins connect&eacute;s</h1>
-<p>Voici la liste des lapins connect&eacute;s sur ce serveur.
+<h1 id="bunnies">List of connected rabbits</h1>
+<p>Rabbits registered on this server.
 </p>
 <center>
 <table style="width: 80%">
 	<tr>
 		<th>MAC</th>
-		<th>Nom</th>
-		<th>Statut</th>
+		<th>Name</th>
+		<th>Status</th>
 		<th>Actions</th>
 	</tr>
 <?php
@@ -141,19 +141,19 @@ if(isset($_SESSION['message']) && empty($_GET)) {
 		<td width="20%"><?php echo $mac; ?></td>
 		<td><?php echo $name; ?></td>
 		<td width="20%"><?php	echo isset($cbunnies[$mac]) ? 'C': 'D&eacute;c' ?>onnect&eacute;</td>
-		<td width="20%"><a href='bunny.php?b=<?php echo $mac; ?>'>Configurer</a>&nbsp;<a href='server.php?removeB=<?php echo $mac; ?>'>Remove</a></td>
+		<td width="20%"><a href='bunny.php?b=<?php echo $mac; ?>'>Configure</a>&nbsp;<a href='server.php?removeB=<?php echo $mac; ?>'>Remove</a></td>
 	</tr>
 <?php } ?>
 </table>
 </center>
 
-<h1 id="ztamps">Liste des Ztamps</h1>
-<p>Voici la liste des ztamps enregistr&eacute;s sur ce serveur.</p>
+<h1 id="ztamps">List of Ztamps</h1>
+<p>Ztamps registered on this server.</p>
 <center>
 <table style="width: 80%">
 	<tr>
 		<th>ID</th>
-		<th>Nom</th>
+		<th>Name</th>
 		<th>Actions</th>
 	</tr>
 <?php
@@ -165,20 +165,20 @@ if(isset($_SESSION['message']) && empty($_GET)) {
 	<tr<?php echo $i++ % 2 ? " class='l2'" : "" ?>>
 		<td width="20%"><?php echo $id; ?></td>
 		<td><?php echo $name; ?></td>
-		<td width="20%"><a href='ztamp.php?z=<?php echo $id; ?>'>Configurer</a>
+		<td width="20%"><a href='ztamp.php?z=<?php echo $id; ?>'>Configure</a>
 	</tr>
 <?php } ?>
 </table>
 </center>
 
-<h1 id="userlist">Liste des Utilisateurs</h1>
-<p>Voici la liste des comptes enregistr&eacute;s sur ce serveur.</p>
+<h1 id="userlist">List of Users</h1>
+<p>Registered user.</p>
 <center>
 <table style="width: 80%">
 	<tr>
 		<th>Login</th>
 		<th>Username</th>
-		<th>Statut</th>
+		<th>Status</th>
 		<th>Actions</th>
 	</tr>
 <?php

@@ -57,18 +57,18 @@ class ojnTemplate {
         }
 
 	private function makeMenu() {
-		$menu = '<a href="index.php">Accueil</a>';
+		$menu = '<a href="index.php">Home</a>';
 		if(isset($_SESSION['token']))	{
             $menu .= ' | <a href="account.php">Account</a>';
-			$menu .= ' | <a href="bunny.php">Lapin</a>';
+			$menu .= ' | <a href="bunny.php">Rabbit</a>';
 			$menu .= ' | <a href="ztamp.php?z">Ztamps</a>';
 			if($this->UInfos['isAdmin']) {
-				$menu .= ' | <a href="server.php">Serveur</a>';
+				$menu .= ' | <a href="server.php">Server</a>';
 				$menu .= ' | <a href="api.php">Raw API call</a>';
 			}
             $menu .= ' | <a href="index.php?logout">Logout ('.$this->UInfos['username'].')</a>';
 		}
-		$menu .= ' | <a href="help.php">Aide</a>';
+		$menu .= ' | <a href="help.php">Help</a>';
 		return $menu;
 	}
 
