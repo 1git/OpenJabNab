@@ -132,7 +132,7 @@ void PluginSleep::RegisterCrons(Bunny * b)
 
 void PluginSleep::InitApiCalls()
 {
-        DECLARE_PLUGIN_BUNNY_API_CALL("status()", PluginSleep, Api_Status);
+    DECLARE_PLUGIN_BUNNY_API_CALL("status()", PluginSleep, Api_Status);
 	DECLARE_PLUGIN_BUNNY_API_CALL("sleep()", PluginSleep, Api_Sleep);
 	DECLARE_PLUGIN_BUNNY_API_CALL("wakeup()", PluginSleep, Api_Wakeup);
 	DECLARE_PLUGIN_BUNNY_API_CALL("setup(wakeupList,sleepList)", PluginSleep, Api_Setup);
