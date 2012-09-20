@@ -50,7 +50,7 @@ TTSAcapela::TTSAcapela():TTSInterface("acapela", "Acapela")
 	// UK English voices
 	voiceList << "graham" << "lucy" << "peter" << "rachel" << "queenelizabeth" << "deepa" ;
 	// US English voices
-	voiceList << "heather" << "kenny" << "laura" << "micha" << "nelly" << "ryan" << "saul" << "tracy";
+	voiceList << "heather" << "kenny" << "laura" << "micah" << "nelly" << "ryan" << "saul" << "tracy";
 }
 
 TTSAcapela::~TTSAcapela()
