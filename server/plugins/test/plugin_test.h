@@ -15,6 +15,7 @@ public:
 	bool HttpRequestHandle(HTTPRequest &);
 	void InitApiCalls();
 	PLUGIN_BUNNY_API_CALL(Api_LaunchTests);
+	PLUGIN_BUNNY_API_CALL(Api_MoveEar);
 
 private:
 	int angle;

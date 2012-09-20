@@ -19,6 +19,7 @@ PluginTest::~PluginTest()
 void PluginTest::InitApiCalls()
 {
 	DECLARE_PLUGIN_BUNNY_API_CALL("test(type)", PluginTest, Api_LaunchTests);
+	DECLARE_PLUGIN_BUNNY_API_CALL("moveEar(left,right)", PluginTest, Api_MoveEar);
 }
 
 PLUGIN_BUNNY_API_CALL(PluginTest::Api_LaunchTests)
@@ -77,3 +78,18 @@ bool PluginTest::HttpRequestHandle(HTTPRequest & request)
 	return false;
 }
 
+PLUGIN_BUNNY_API_CALL(PluginTest::Api_MoveEar)
+{
+	Q_UNUSED(account);
+        int left = hRequest.GetArg("left").toInt();
+        int right = hRequest.GetArg("right").toInt();
+
+        if(left<0 || left>16)
+                  return new ApiManager::ApiError(QString("\"left\" parameter should be between 0 and 16, %1 given").arg(QString(left)));
+        if(right<0 || right>16)
+                  return new ApiManager::ApiError(QString("\"right\" parameter should be between 0 and 16, %1 given").arg(QString(right)));
+        AmbientPacket p;
+        p.SetEarsPosition(left, right);
+        bunny->SendPacket(p);
+        return new ApiManager::ApiOk(QString("Moving Left ear to \"%1\"  and Right ear to \"%2\" for Bunny '%3'").arg(QString::number(left), QString::number(right), QString(bunny->GetID())));
+}
