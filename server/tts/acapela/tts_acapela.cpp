@@ -9,18 +9,48 @@ Q_EXPORT_PLUGIN2(tts_acapela, TTSAcapela)
 
 TTSAcapela::TTSAcapela():TTSInterface("acapela", "Acapela")
 {
+	// Arabic voices
+	voiceList << "salma" << "leila" << "mehdi" << "nizar";
+	// Brazillian voices
+	voiceList << "marcia";
+	// Catalan voices
+	voiceList << "laia";
+	// Czech voices
+	voiceList << "eliska";
+	// Danish voices
+	voiceList << "mette" << "rasmus" << "jeroen" << "sofie" << "zoe" << "daan" << "femke" << "jasmijn" << "max";
+	// Finnish voices
+	voiceList << "sanna";
 	// French voices
-	voiceList << "claire" << "alice" << "bruno" << "julie";
+	voiceList << "alice" << "antoine" << "claire" << "bruno" << "julie" << "margaux" << "justine";
+	// German voices
+	voiceList << "andreas" << "julia" << "klaus" << "sarah";
+	// Greek voices
+	voiceList << "dimitris";
+	// Italian voices
+	voiceList << "chiara" << "fabiana" << "vittorio";
+	// Norwegian voice
+	voiceList << "bente" << "kari" << "olav";
+	// Polish voices
+	voiceList << "ania";
+	// Portugese voice
+	voiceList << "celia";
+	// Russian voices
+	voiceList << "alyona";
+	// Spanish voice
+	voiceList << "antonio" << "ines" << "maria";
+	// Sweedish voices
+	voiceList << "samuel" << "kal" << "mia" << "elin" << "emil" << "emma" << "erik";
+	// Turkish voices
+	voiceList << "ipek";
 	// Canadian French voices
 	voiceList << "louise";
-	// German voices
-	voiceList << "klaus" << "sarah";
 	// Spanish voices
-	voiceList << "maria";
+	voiceList << "maria" << "rosa";
 	// UK English voices
-	voiceList << "graham" << "lucy" << "peter" << "rachel";
+	voiceList << "graham" << "lucy" << "peter" << "rachel" << "queenelizabeth" << "deepa" ;
 	// US English voices
-	voiceList << "heather" << "kenny" << "laura" << "nelly" << "ryan";
+	voiceList << "heather" << "kenny" << "laura" << "micha" << "nelly" << "ryan" << "saul" << "tracy";
 }
 
 TTSAcapela::~TTSAcapela()
