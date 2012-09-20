@@ -146,7 +146,7 @@ PLUGIN_BUNNY_API_CALL(PluginSleep::Api_Status)
 	if(!bunny->IsSleeping())
 		return new ApiManager::ApiError(QString("Bunny is awake"));
 
-	return new ApiManager::ApiError(QString("Bunny is asleep"));
+	return new ApiManager::ApiError(QString("Sssshhhh!!! Bunny %1 is asleep").arg(bunny->GetBunnyName()));
 }
 
 PLUGIN_BUNNY_API_CALL(PluginSleep::Api_Sleep)
