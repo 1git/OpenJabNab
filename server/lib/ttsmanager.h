@@ -17,7 +17,9 @@ public:
 	static void Close();
 	static QByteArray CreateNewSound(QString, QString, bool overwrite = false);
 	static QByteArray CreateNewSound(QString, QString, QString, bool overwrite = false);
+	QStringList ListVoices();
 	TTSInterface * GetTTSByName(QString const& name) const;
+
 	
 protected:
 	static QStringList voiceList;

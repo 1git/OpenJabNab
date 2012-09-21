@@ -23,7 +23,9 @@ public:
 	// Called to init tts, return false if something is wrong
 	virtual bool Init() { return true; };
 
-	virtual QByteArray CreateNewSound(QString, QString, bool) { return ""; }
+	virtual QByteArray CreateNewSound(QString, QString, bool) { return ""; };
+
+	virtual QStringList ListVoices();
 
 	// Settings
 	QVariant GetSettings(QString const& key, QVariant const& defaultValue = QVariant()) const;
@@ -32,12 +34,14 @@ public:
 	// Plugin's name
 	QString const& GetName() const;
 	QString const& GetVisualName() const;
+	
 
 	// Plugin enable/disable functions
 	bool GetEnable() const;
 
 	// Plugin type
 	int GetType() const;
+
 
 protected:
 	void SetEnable(bool);
