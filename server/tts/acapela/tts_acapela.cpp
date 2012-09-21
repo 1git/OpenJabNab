@@ -57,17 +57,12 @@ TTSAcapela::~TTSAcapela()
 {
 }
 
-QStringList TTSAcapela::ListVoices()
-{
-	return(QStringList(voiceList));
-}
-
 QByteArray TTSAcapela::CreateNewSound(QString text, QString voice, bool forceOverwrite)
 {
 	QEventLoop loop;
 
 	if(!voiceList.contains(voice))
-//		voice = "claire";    // french default voice
+//		voice = "claire";
 		voice = "heather";
 
 	// Check (and create if needed) output folder
@@ -135,7 +130,6 @@ QByteArray TTSAcapela::CreateNewSound(QString text, QString voice, bool forceOve
 	}
 	LogError("Acapela demo did not return a sound file");
 	LogDebug(QString("Acapela answer : %1").arg(QString(reponse)));
-
 	return QByteArray();
 }
 

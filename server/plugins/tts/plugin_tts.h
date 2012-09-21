@@ -16,7 +16,6 @@ public:
 	// API
 	void InitApiCalls();
 	PLUGIN_BUNNY_API_CALL(Api_Say);
-	PLUGIN_BUNNY_API_CALL(Api_AcapelaList);
 
 private:
 };

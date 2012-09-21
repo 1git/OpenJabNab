@@ -16,7 +16,6 @@ public:
 	TTSAcapela();
 	virtual ~TTSAcapela();
 	QByteArray CreateNewSound(QString, QString, bool);
-	QStringList ListVoices();
 
 private:
 };

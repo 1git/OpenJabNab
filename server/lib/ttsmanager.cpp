@@ -140,9 +140,3 @@ QByteArray TTSManager::CreateNewSound(QString text, QString voice, bool forceOve
 	TTSInterface * tts = Instance().GetTTSByName(GlobalSettings::Get("Config/TTS", "acapela").toString());
 	return tts->CreateNewSound(text, voice, forceOverwrite);
 }
-
-QStringList TTSManager::ListVoices()
-{
-	TTSInterface * tts = Instance().GetTTSByName(GlobalSettings::Get("Config/TTS", "acapela").toString());
-	return tts->ListVoices();
-}
